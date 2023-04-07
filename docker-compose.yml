@@ -6,8 +6,7 @@ services:
       - "9090:8080"
       - "7077:7077"
     volumes:
-       - ./apps:/opt/spark-apps
-       - ./data:/opt/spark-data
+       - /home/sg/UTD/Spring2023/BD/src/:/opt/spark-apps
     environment:
       - SPARK_LOCAL_IP=spark-master
       - SPARK_WORKLOAD=master
@@ -27,8 +26,7 @@ services:
       - SPARK_WORKLOAD=worker
       - SPARK_LOCAL_IP=spark-worker-a
     volumes:
-       - ./apps:/opt/spark-apps
-       - ./data:/opt/spark-data
+       - /home/sg/UTD/Spring2023/BD/src/:/opt/spark-apps
   spark-worker-b:
     image: cluster-apache-spark:3.0.2
     ports:
@@ -45,8 +43,7 @@ services:
       - SPARK_WORKLOAD=worker
       - SPARK_LOCAL_IP=spark-worker-b
     volumes:
-        - ./apps:/opt/spark-apps
-        - ./data:/opt/spark-data
+       - /home/sg/UTD/Spring2023/BD/src/:/opt/spark-apps
   demo-database:
     image: postgres:11.7-alpine
     ports: 
